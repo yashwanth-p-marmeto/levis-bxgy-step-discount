@@ -1,0 +1,26 @@
+query CartInput {
+  cart {
+    buyerIdentity {
+      email
+      customer {
+        id
+        email
+      }
+    }
+    lines {
+      id
+      quantity
+      merchandise {
+        __typename
+        ... on ProductVariant {
+          product {
+            hasAnyTag(tags: ["EOSS250%360%OFF"])
+          }
+        }
+      }
+    }
+  }
+  discount {
+    discountClasses
+  }
+}
